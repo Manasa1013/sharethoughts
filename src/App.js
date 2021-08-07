@@ -13,8 +13,10 @@ import { NotificationsList } from "./features/notifications/NotificationsList";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <h1 className="app-header">Social media</h1>
+      <header className="header">
+        <h1 className="app-header">Sharethoughts</h1>
+        <Navbar />
+      </header>
       <Switch>
         <Route
           exact

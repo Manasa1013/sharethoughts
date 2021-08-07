@@ -29,18 +29,21 @@ export const NotificationsList = () => {
       {status === "loading" && <div>Loading...</div>}
       {status === "succeeded" && (
         <div>
-          <section className="notification-container">
-            {notifications.map((notif) => (
-              <article className="notification">
-                <div>
-                  <strong>{notif.userName}</strong> {notif.commentType}
-                </div>
-                <p className="notification__caption">{notif.caption}</p>
-                <span className="notification__time">
-                  <TimeAgo timeStamp={notif.date} />
-                </span>
-              </article>
-            ))}
+          <section className="notification__container">
+            {notifications
+              .slice()
+              .sort((a, b) => b.date.localeCompare(a.date))
+              .map((notif) => (
+                <article className="notification">
+                  <div>
+                    <strong>{notif.userName}</strong> {notif.commentType}
+                  </div>
+                  <p className="notification__caption">{notif.caption}</p>
+                  <span className="notification__time">
+                    <TimeAgo timeStamp={notif.date} />
+                  </span>
+                </article>
+              ))}
           </section>
         </div>
       )}

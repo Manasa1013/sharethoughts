@@ -11,7 +11,6 @@ export const Navbar = () => {
   return (
     <nav>
       <section className="nav--container">
-        <h2> Practice Redux</h2>
         <div className="nav--contents">
           <div className="nav--links">
             <Link className="button button__secondary" to="/">
