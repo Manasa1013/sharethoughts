@@ -10,10 +10,16 @@ body {
 * {
   box-sizing: border-box;
 }
+.flex-center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .app-header {
   margin: 0;
   text-align: center;
   color: var(--primary-white);
+  background-color: var(--primary-black);
 }
 
 .app-body {
@@ -24,15 +30,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 60%;
+  width: 60%;
   align-items: center;
 }
 .post {
   border: 1px solid var(--primary-white);
+  /* border: 1px solid red; */
   padding: 1rem;
   margin: 1rem;
-  width: 60%;
   height: auto;
+  width: 100%;
+  margin: 0 0.5rem;
 }
 
 .post .caption {
@@ -47,7 +55,8 @@ body {
 }
 
 .button__floating {
-  background: green;
+  background: var(--primary-black);
+  margin: 1rem 0 0 0;
   font-weight: 700;
   font-size: large;
   border-radius: 50%;
@@ -79,6 +88,7 @@ body {
 
 .button__Link {
   color: var(--primary-black);
+  height: auto;
 }
 
 .button__Link:hover {
@@ -151,8 +161,26 @@ body {
 }
 .nav--container {
 }
+.nav--links {
+  display: flex;
+  flex-direction: column;
+}
 
-.header {
+.footer {
   background-color: var(--primary-black);
   margin: 0;
+}
+
+@media screen and (max-width: 425px) {
+  .nav--links {
+    flex-direction: row;
+  }
+  .post {
+    width: 100%;
+    height: auto;
+  }
+  .post-container {
+    width: 100%;
+    height: auto;
+  }
 }

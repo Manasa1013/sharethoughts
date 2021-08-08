@@ -13,10 +13,7 @@ import { NotificationsList } from "./features/notifications/NotificationsList";
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <h1 className="app-header">Sharethoughts</h1>
-        <Navbar />
-      </header>
+      <h1 className="app-header">Sharethoughts</h1>
       <Switch>
         <Route
           exact
@@ -42,6 +39,9 @@ function App() {
         />
         <Redirect to="/" />
       </Switch>
+      <footer className="footer">
+        <Navbar />
+      </footer>
     </div>
   );
 }

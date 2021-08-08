@@ -33,7 +33,7 @@ export const UserPage = ({ match }) => {
                   <section key={userPost.postID}>
                     <div className="post-container">
                       <Link
-                        className="button button__secondary"
+                        className="button button__Link"
                         to={`/posts/${userPost.postID}`}
                       >
                         <article key={userPost.postID} className="post">
@@ -46,7 +46,7 @@ export const UserPage = ({ match }) => {
               })
             : "No posts from this user"}
         </article>
-        <Link to={`/users`} className="button button__secondary">
+        <Link to={`/users`} className="button button__Link">
           Go back
         </Link>
       </section>

@@ -20,7 +20,7 @@ export const Posts = () => {
   // }, [dispatch, postStatus]);
 
   return (
-    <div>
+    <div className="flex-center-align">
       <div className="post-container">
         {postStatus === "loading" && (
           <div>
@@ -38,10 +38,7 @@ export const Posts = () => {
                 <div className="caption"> {post.caption} </div>
                 <Reactions post={post} />
                 <div>
-                  <Link
-                    className="button__secondary"
-                    to={`/posts/${post.postID}`}
-                  >
+                  <Link className="button__Link" to={`/posts/${post.postID}`}>
                     View Post
                   </Link>
                 </div>

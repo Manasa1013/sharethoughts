@@ -18,7 +18,7 @@ export const Users = () => {
                 }}
               >
                 <Link
-                  className="button button__secondary"
+                  className="button button__Link"
                   key={userID}
                   to={`/users/${userID}`}
                 >
