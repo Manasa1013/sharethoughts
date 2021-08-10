@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { PostAuthor } from "./PostAuthor";
 import { TimeAgo } from "./TimeAgo";
 import { Reactions } from "./Reactions";
-import { fetchPosts, selectAllPosts } from "./postsSlice";
+import { selectAllPosts } from "./postsSlice";
 
 export const Posts = () => {
-  const dispatch = useDispatch();
   const { posts, status: postStatus } = useSelector(selectAllPosts);
   const orderedPosts = posts.slice().sort((a, b) => {
     console.log(b.date.localeCompare(a.date));

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchNotifications } from "./notificationsSlice";
 import { TimeAgo } from "../posts/TimeAgo";
@@ -19,9 +19,7 @@ export const NotificationsList = () => {
     } finally {
     }
   }, [dispatch]);
-  const { notifications, status, error } = useSelector(
-    (state) => state.notifications
-  );
+  const { notifications, status } = useSelector((state) => state.notifications);
 
   return (
     <div>

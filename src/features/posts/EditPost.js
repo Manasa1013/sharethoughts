@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postsUpdated } from "./postsSlice";
 import "../../index.css";
-import { useHistory, useLocation } from "react-router";
+import { useHistory } from "react-router";
 import { selectPostById } from "./postsSlice";
 
 export const EditPost = ({ match }) => {

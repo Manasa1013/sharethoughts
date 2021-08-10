@@ -31,7 +31,7 @@ export const Navbar = () => {
                   dispatch(fetchNotifications());
                 }}
               >
-                Refresh Notifications
+                {refreshNotifs ? "Loading..." : "Refresh Notifications"}
               </button>
             )}
           </div>

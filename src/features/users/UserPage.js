@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../../index.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectAllPosts } from "../posts/postsSlice";
 
 export const UserPage = ({ match }) => {
-  const dispatch = useDispatch();
   const { userID } = match.params;
   const user = useSelector((state) =>
     state.users.find((userItem) => userItem.userID === userID)
