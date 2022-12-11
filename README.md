@@ -22,3 +22,7 @@
 - CRUD operations done will be saved to backend.
 - User can signup and login.
 - User can follow and unfollow other users.
+
+### Links
+
+- [App live](https://shareyourthoughts.netlify.app/)
