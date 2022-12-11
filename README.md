@@ -1,18 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Social media app using React-redux
 
-# Share your thoughts 
-*  An application enabling users to share their thoughts , ideas and poetry in short to their peer group and to the world.
-*  It's built using React-Redux  ,showcasing pieces of social media app ,focused on learning React-redux with this app.
-
-### Features 
-* Write posts ,save them and share it to users.
-* Can edit posts after writing posts on the wall.
-* View individual user posts' on the wall.
-* Notifications are randomly generated with fake data.
-* More features are yet to be added.
+#### An app built showcasing pieces of social media app , where user can share thoughts, ideas and poetry in short to everyone and connect with peers.
 
 ### Tech stack
-* React 
-* Redux Toolkit 
-* Node js backend 
 
+- React-Redux
+- Node and express - API server
+- HTML , CSS .
+- React-Router for navigation
+
+### Functionalities
+
+- User can view everyone's posts, react to them.
+- User can add new posts and this is saved into server.
+- Each post can be viewed in seperate single pages for better visibility.
+- The previous posts are fetched from the server.
+- User can edit the posts.
+
+### Future enhancements
+
+- CRUD operations done will be saved to backend.
+- User can signup and login.
+- User can follow and unfollow other users.
+
+### Links
+
+- [App live](https://shareyourthoughts.netlify.app/)
