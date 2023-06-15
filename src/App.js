@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+import Mockman from "mockman-js";
 
 import "../src/index.css";
 import { Toast } from "../src/features/toast/toast";
 import { selectToast, hideToast, showToast } from "./features/toast/toastSlice";
 import { Nav } from "./components/Nav";
+import { RequireAuth } from "./features/authentication/RequireAuth";
 import { Login } from "./pages/authentication/login";
 import { Signup } from "./pages/authentication/signup";
+import { Users } from "./features/oldusers/Users";
 
 function App() {
   const toast = useSelector(selectToast);
@@ -44,8 +47,18 @@ function App() {
             </React.Fragment>
           }
         ></Route>
+        <Route
+          path="/users"
+          element={
+            <RequireAuth>
+              <Users />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/mockman" element={<Mockman />}></Route>
+
         <Route
           path="*"
           element={

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { showToast } from "../toast/toastSlice";
 
 const initialState = {
   token: JSON.parse(localStorage.getItem("userData"))?.token || "",
@@ -23,9 +24,13 @@ export const loginHandler = createAsyncThunk(
             user: response.data.foundUser,
           })
         );
+        showToast("Logged in successfully");
+
         return fulfillWithValue(response.data.success);
       }
     } catch (err) {
+      showToast("Error at logging in");
+
       return rejectWithValue(err.response.data.errors[0]);
     }
   }
@@ -49,10 +54,13 @@ export const signupHandler = createAsyncThunk(
             user: data.createdUser,
           })
         );
+        showToast("Signed up successfully");
 
         return data;
       }
     } catch (err) {
+      showToast("Error at signing up");
+
       return rejectWithValue(err.response.data.errors[0]);
     }
   }
@@ -93,6 +101,8 @@ export const authenticationSlice = createSlice({
   initialState,
   reducers: {
     logoutHandler: (state) => {
+      showToast("Logged out successfully");
+
       localStorage.removeItem("userData");
       state.token = "";
       state.user = {};
@@ -125,5 +135,7 @@ export const authenticationSlice = createSlice({
     },
   },
 });
+
+export const selectAuth = (state) => state;
 export const { logoutHandler } = authenticationSlice.actions;
 export default authenticationSlice.reducer;

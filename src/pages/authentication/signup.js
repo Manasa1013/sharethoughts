@@ -34,6 +34,7 @@ export const Signup = () => {
   }
   async function submitHandler() {
     //if there are any errors,show message
+
     if (
       errorField.firstNameError.length > 0 ||
       errorField.lastNameError.length > 0 ||
@@ -62,6 +63,15 @@ export const Signup = () => {
       );
       console.log(data);
       if (data.error) dispatch(showToast(data.payload));
+      else {
+        dispatch(
+          showToast(
+            "Successfully signed up",
+            data.payload?.createdUser.firstName
+          )
+        );
+        resetValues();
+      }
     }
   }
   function resetValues() {
@@ -279,6 +289,24 @@ export const Signup = () => {
               className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-600/100 py-2 px-4 text-sm font-semibold text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
             >
               Sign up
+            </button>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-600/100 py-2 px-4 text-sm font-semibold text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+              onClick={(e) => {
+                setField((prev) => ({
+                  ...prev,
+                  firstName: "Taylor",
+                  lastName: "Swift",
+                  username: "taylor_swift",
+                  password: "Taylor@1",
+                }));
+                handleSubmit(e);
+              }}
+            >
+              Sign up as Guest
             </button>
           </div>
         </form>

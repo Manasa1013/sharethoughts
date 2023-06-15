@@ -20,4 +20,18 @@ export const users = [
     followers: [],
     following: [],
   },
+  {
+    _id: uuid(),
+    firstName: "Manasa",
+    lastName: "Mandalreddy",
+    username: "manasamandalreddy",
+    password: "Manasa@1",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bio: "Let's connect",
+    website: "",
+    profilePicture: "",
+    followers: [],
+    following: [],
+  },
 ];

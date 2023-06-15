@@ -18,6 +18,7 @@ export const signupHandler = function (schema, request) {
   console.log(
     "at signupHandler of mirage",
     request,
+    { schema },
     JSON.parse(request.requestBody)
   );
   const { username, password, firstName, lastName } = JSON.parse(
@@ -27,7 +28,7 @@ export const signupHandler = function (schema, request) {
   try {
     // check if username already exists
     const foundUser = schema.users.findBy({ username: username });
-    console.log(foundUser, "foundUser at mirage");
+    console.log(foundUser, "foundUser at mirage", { schema });
     if (!null) console.log("checking null condn");
     if (foundUser !== null) {
       return new Response(
@@ -51,6 +52,9 @@ export const signupHandler = function (schema, request) {
       followers: [],
       following: [],
       bookmarks: [],
+      profilePicture: "",
+      bio: "",
+      website: "",
     };
     const createdUser = schema.users.create(newUser);
     const encodedToken = sign(
