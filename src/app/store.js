@@ -1,15 +1,17 @@
 import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
-import postsReducer from "../features/posts/postsSlice";
-import usersReducer from "../features/users/usersSlice";
-import notificationsReducer from "../features/notifications/notificationsSlice";
+import toastReducer from "../features/toast/toastSlice";
+// import postsReducer from "../features/oldposts/postsSlice";
+// import usersReducer from "../features/oldusers/usersSlice";
+// import notificationsReducer from "../features/oldnotifications/notificationsSlice";
 
 export const store = configureStore(
   {
     reducer: {
-      posts: postsReducer,
-      users: usersReducer,
-      notifications: notificationsReducer,
+      toast: toastReducer,
+      // posts: postsReducer,
+      // users: usersReducer,
+      // notifications: notificationsReducer,
     },
   },
   applyMiddleware(thunk)

@@ -2,17 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 :root {
-  --primary-white: #efefef;
-  --primary-black: #24292e;
+  --primary-white: rgb(239, 239, 239);
+  --primary-black: rgb(36, 41, 46);
+  --primary-background: rgb(229, 231, 235);
+    --secondary-background: rgb(203, 240, 248);
+    --pastel-blue: rgb(154, 208, 236);
+    --primary-text: rgb(50, 49, 48);
+    --secondary-text: rgb(100, 116, 139);
+    --tw-text-opacity: 1;
+    --blue: rgb(37, 100, 207);
+    --secondary-blue: rgb(0, 120, 212);
+    --secondary-white: rgb(151, 107, 31);
+    --error-red: red;
+    --light-emerald : #4ade80;
 }
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   margin: 0;
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.logo {
+  font-family: "Pacifico", cursive, Impact, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
+    font-weight: 400;
+    color: var(--primary-white);
 }
 .flex-center-align {
   display: flex;

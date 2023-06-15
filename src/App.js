@@ -1,47 +1,62 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { Navbar } from "./app/Navbar";
-import { Posts } from "./features/posts/Posts";
-import { SinglePost } from "./features/posts/SinglePost";
-import { EditPost } from "./features/posts/EditPost";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+
 import "../src/index.css";
-import { AddPost } from "./features/posts/AddPost";
-import { Users } from "./features/users/Users";
-import { UserPage } from "./features/users/UserPage";
-import { NotificationsList } from "./features/notifications/NotificationsList";
+import { Toast } from "../src/features/toast/toast";
+import { selectToast, hideToast, showToast } from "./features/toast/toastSlice";
+import { Nav } from "./components/Nav";
+import { Login } from "./pages/authentication/login";
+import { Signup } from "./pages/authentication/signup";
 
 function App() {
+  const toast = useSelector(selectToast);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      if (toast.isVisible === "show") {
+        dispatch(hideToast());
+      }
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [toast.isVisible, dispatch]);
   return (
     <div className="App">
-      <h1 className="app-header">Sharethoughts</h1>
-      <Switch>
+      <Nav />
+      <Routes>
         <Route
           exact
           path="/"
-          render={() => (
+          element={
             <React.Fragment>
-              <AddPost />
-              <Posts />
+              <h1>Share thoughts</h1>
+              <section>
+                {" "}
+                <button
+                  type="button"
+                  className="btn px-4 py-3 mx-2 my-4"
+                  onClick={() => dispatch(showToast("Showing toast to test"))}
+                >
+                  Button
+                </button>
+                You can share thoughts ,it's a new version
+              </section>
             </React.Fragment>
-          )}
-        />
-        <Route path={`/posts/:postID`} component={SinglePost} />
-        <Route path={`/editPost/:postID`} component={EditPost} />
-        <Route path={`/users/:userID`} component={UserPage} />
-        <Route path={`/users`} component={Users} />
+          }
+        ></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
         <Route
-          path={`/notifications`}
-          render={() => (
+          path="*"
+          element={
             <React.Fragment>
-              <NotificationsList />
+              <h1>Share thoughts notifications</h1>
+              <section> When you give any url,you view this</section>
             </React.Fragment>
-          )}
-        />
-        <Redirect to="/" />
-      </Switch>
-      <footer className="footer">
-        <Navbar />
-      </footer>
+          }
+        ></Route>
+      </Routes>
+      <Toast />
     </div>
   );
 }

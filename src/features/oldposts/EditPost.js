@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postsUpdated } from "./postsSlice";
 import "../../index.css";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { selectPostById } from "./postsSlice";
 
 export const EditPost = ({ match }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { postID } = match.params;
   const editablePost = useSelector((state) => selectPostById(state, postID));
   const [editPost, setEditPost] = useState(editablePost);
@@ -22,7 +22,7 @@ export const EditPost = ({ match }) => {
     return (dispatch) => {
       if (editPost.title && editPost.caption) {
         dispatch(postsUpdated(editPost));
-        history.push(`/posts/${postID}`);
+        navigate(`/posts/${postID}`);
       }
     };
   };
